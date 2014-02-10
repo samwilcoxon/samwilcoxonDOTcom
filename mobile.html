@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+	    <meta charset="UTF-8" />
+	    <title>Sam Wilcoxon</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
+	    <script type="text/javascript" src="js/scripts.js"></script>
+	    <!-- <script type="text/javascript" src=""></script> -->
+	    <link rel="stylesheet" type="text/css" href="css/fonts.css" />
+		<link rel="stylesheet" type="text/css" href="css/mobilecube.css" />
+
+	</head>
+	<body>
+		<div class="background"></div>
+		<div class="scene">
+			<div class="cube">
+				<div class="cube-face  cube-face-front">
+			    	<div class="cubeContent">
+			    		<h1 class="cubeTitle">Work</h1>
+			    		<!-- <img class="unselectable" src="work3.png"> -->
+			    	</div>
+				</div>
+			</div>
+		</div>
+		<div class="scene">
+			<div class="cube">
+				<div class="cube-face  cube-face-back">
+			    	<div class="cubeContent">
+			    		<h1 class="cubeTitle">Resume</h1>
+			    		<!-- <img class="unselectable" src="resume.png"> -->
+			    	</div>
+				</div>
+			</div>
+		</div>
+		<div class="scene">
+			<div class="cube">
+				<div class="cube-face  cube-face-left">
+			    	<div class="cubeContent">
+			    		<h1 class="cubeTitle">Design</h1>
+			    		<!-- <img class="unselectable" src="blog.png"> -->
+			    	</div>
+				</div>
+			</div>
+		</div>
+		<div class="scene">
+			<div class="cube">
+				<div class="cube-face  cube-face-right">
+			    	<div class="cubeContent">
+			    		<h1 class="cubeTitle">Contact</h1>
+			    		<!-- <img class="unselectable" src="contact.png"> -->
+			    	</div>
+				</div>
+			</div>
+		</div>
+		<div class="scene">
+			<div class="cube">
+				<div class="cube-face  cube-face-top">
+			    	<div class="cubeContent about">
+			    		<h1 class="cubeTitle">About Me</h1>
+			    		<img class="unselectable profilePic" src="images/sam_wilcoxon.jpg" alt="Sam Wilcoxon">
+			    	</div>
+				</div>
+				<div class="cube-face  cube-face-bottom">
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				var squareSize = 16;
+
+				// setupBackground();
+
+				function setupBackground() {
+					var $background = $('.background')[0];
+
+					$background.innerHTML = '';
+
+					var totWidth = $(window).width();
+					var numWide = Math.ceil(totWidth/squareSize);
+					var colorWideMultiplier = 256/numWide;
+			      	var totHeight = $(window).height();
+			      	var numHigh = Math.ceil(totHeight/squareSize);
+			      	var colorHighMultiplier = 256/numHigh;
+
+			      	for (var i = 0; i < numWide; i++) {
+			      		for (var j = 0; j < numHigh; j++) {
+			      			var $newDiv = $('<div/>');
+							$newDiv.addClass('backTile');
+							var color = 'rgb(' + Math.ceil(colorWideMultiplier*i) + ', 0,' + Math.ceil(colorHighMultiplier)*j + ')';
+							$newDiv.css('background-color', color);
+							$newDiv.css('top', squareSize*j);
+							$newDiv.css('left', squareSize*i);
+
+							$newDiv.appendTo($background);
+			      		}
+			      	}
+				}
+
+				$(window).resize(function() {
+					// setupBackground();
+				});
+
+			});
+		</script>
+	</body>
+</html>
