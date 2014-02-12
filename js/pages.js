@@ -131,5 +131,20 @@ $(document).ready(function() {
 	});
 
 
+	/*LIGHTBOX*/
+	function lightBoxShow(designImage) {
+		$('#lightBox').show();
+		$('#lightBoxImage').css('background-image', $(designImage).css('background-image'));
+		$('#lightBoxComment').text($($(designImage).parent().children('.designComment')[0]).text());
+	}
+
+	$('div.designImage').click( function () {
+		lightBoxShow(this);
+	});
+
+	$('.lightBoxClose').click( function () {
+		$('#lightBox').hide();
+	});
+
 
 });

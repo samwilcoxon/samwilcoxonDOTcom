@@ -155,14 +155,11 @@ $(document).ready(function() {
     		// startPoint = e;
     	} else {
     		endPoint = e;
+        	pause = true;
+        	clearTimeout(timer);
     		if (distanceBetweenPoints(startPoint, endPoint) > 40) {
     			transformCube(startPoint, endPoint);
         		startPoint = endPoint;
-        		clearTimeout(timer);
-        		var pause = true;
-        		timer = setTimeout(function() {
-        			pause = false;
-        		}, 500);
     		}
     	}
         // isDragging = true;
@@ -171,6 +168,10 @@ $(document).ready(function() {
     	if (!start) return;
 	    var wasDragging = isDragging;
 	    isDragging = false;
+	    // pause = false;
+	    timer = setTimeout(function() {
+			pause = false;
+		}, 500);
 	    // $(window).unbind("mousemove");
 	    // if (wasDragging) { //was clicking
 	    // 	endPoint = event;
