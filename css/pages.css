@@ -313,6 +313,7 @@ div.page {
 
 div.page.full {
 	background: rgba(0,0,0,.7);
+	overflow: hidden;
 }
 
 /*about page css*/
@@ -596,9 +597,6 @@ div.designImage {
 	background-repeat: no-repeat;
 }
 
-
-
-/*lightbox photos*/
 #lightBox {
 	display: none;
 	position: fixed;
@@ -610,6 +608,47 @@ div.designImage {
 	left: 0px;
 	text-align: center;
 	cursor: pointer;
+}
+
+div.lightBoxDirection {
+	position: absolute;
+	width: 50%;
+	height: 100%;
+	top: 0px;
+	display: block;
+}
+
+#lightBoxLeft {
+	left: 0px;
+}
+#lightBoxRight {
+	left: 50%;
+}
+
+.lightBoxArrow {
+	background-size: auto 35px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	display: none;
+    height: 35px;
+    margin-top: -17px;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    width: 35px;
+}
+
+#lightBoxArrowLeft {
+	left: 5px;
+	background-image: url('../images/left.png');
+}
+#lightBoxArrowRight {
+	right: 5px;
+	background-image: url('../images/right.png');
+}
+
+div.lightBoxDirection:hover div.lightBoxArrow {
+	display: block;
 }
 
 #lightBoxImage {
@@ -632,11 +671,12 @@ div.designImage {
 	position: absolute;
 	top: 5px;
 	right: 10px;
-	color: #AAE4EB;
+	color: white;
+	z-index: 300;
 }
 
 #lightBoxX:hover {
-	color: #86dfea;
+	color: #AAE4EB;
 }
 
 #lightBoxComment {
@@ -649,3 +689,65 @@ div.designImage {
 	font-family: sans-serif;
 	text-align: center;
 }
+
+/*CONTACT page*/
+h2.contactTitle {
+	font-size: 28px;
+	position: relative;
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+
+h4.contactSubtitle {
+	font-size: 14px;
+	margin-left: 10px;
+	margin-top: 5px;
+	position: relative;
+	margin-right: 10px;
+}
+
+div.contactOptions {
+	margin-bottom: 20px;
+    margin-left: 10px;
+    margin-top: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+div.contactOption {
+	float: left;
+	position: relative;
+	margin: 10px;
+	overflow: hidden;
+	color: white;
+}
+
+div.contactOption a {
+	color: white;
+}
+div.contactOption a:hover {
+	color: #AAE4EB;
+}
+
+div.contactOption img {
+	float: left;
+    height: 50px;
+    left: 0;
+    margin-right: 10px;
+    position: relative;
+    top: 0;
+}
+
+div.contactOption div {
+	float: left;
+    font-size: 14px;
+    font-weight: bold;
+    left: 0;
+    line-height: 50px;
+    position: relative;
+    top: 0;
+}
+
+
+

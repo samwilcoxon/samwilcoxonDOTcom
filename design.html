@@ -4,6 +4,7 @@
 	<head>
 	    <meta charset="UTF-8" />
 	    <title>Sam Wilcoxon: Design</title>
+	    <link rel="shortcut icon" href="images/favicon.ico" />
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
 	    <script type="text/javascript" src="js/pages.js"></script>
 	    
@@ -119,9 +120,15 @@
 				</div>
 			</div>
 		</div>
-		<div class="lightBoxClose" id="lightBox">
+		<div id="lightBox">
             <div id="lightBoxImage"></div>
             <div id="lightBoxComment"></div>
+			<div class="lightBoxDirection" id="lightBoxLeft">
+				<div id="lightBoxArrowLeft" class="lightBoxArrow"></div>
+			</div>
+			<div class="lightBoxDirection" id="lightBoxRight">
+				<div id="lightBoxArrowRight" class="lightBoxArrow"></div>
+			</div>
             <div id="lightBoxX" class="lightBoxClose">X</div>
         </div>
         <script type="text/javascript">
@@ -133,11 +140,80 @@
 					$designBoxes.css('height', width);
 				}
 
-					$(window).resize(function() {
-						fixHeights();
-					});
+				$(window).resize(function() {
+					fixHeights();
+				});
 
-					setTimeout(fixHeights, 250);
+				setTimeout(fixHeights, 250);
+
+				var currDesignImageIndex = 0;
+				var $designImages = $('div.designImage');
+				var lightBoxCover = false;
+				/*LIGHTBOX*/
+				function lightBoxShow(image) {
+					lightBoxCover = true;
+					currDesignImageIndex = $designImages.index(image)
+					$('#lightBox').show();
+					$('#lightBoxImage').css('background-image', $(image).css('background-image'));
+					$('#lightBoxComment').text($($(image).parent().children('.designComment')[0]).text());
+				}
+
+				$('div.designImage').click( function () {
+					lightBoxShow(this);
+				});
+
+				$('.lightBoxClose').click( function () {
+					lightBoxCover = false;
+					$('#lightBox').hide();
+				});
+
+				$('#lightBoxLeft').click( function () {
+					goLeft();
+				});
+
+				$('#lightBoxRight').click( function () {
+					goRight();
+				});
+
+				function goLeft() {
+					var image;
+					if (currDesignImageIndex == 0) {
+						image = $designImages[$designImages.length-1];
+					} else {
+						image = $designImages[currDesignImageIndex-1];
+					}
+					lightBoxShow(image);
+				}
+
+				function goRight() {
+					var image;
+					if (currDesignImageIndex == $designImages.length-1) {
+						image = $designImages[0];
+					} else {
+						image = $designImages[currDesignImageIndex+1];
+					}
+					lightBoxShow(image);
+				}
+
+				$(document).keydown(function(e){
+					if (!lightBoxCover) {
+						return;
+					}
+					switch(e.keyCode){
+						case 37: {//left arrow
+							goLeft();
+							break;
+						}
+						case 39: {//right arrow
+							goRight();
+							break;
+						}
+					}
+					if(Math.abs(e.keyCode - 38) === 1){
+						e.preventDefault();
+					}
+				});
+
         	});
         </script>
 	</body>
