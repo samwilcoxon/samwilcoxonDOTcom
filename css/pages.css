@@ -713,10 +713,11 @@ div.contactOptions {
     margin-top: 20px;
     overflow: hidden;
     position: relative;
+    text-align: center;
 }
 
 div.contactOption {
-	float: left;
+	display: inline-block;
 	position: relative;
 	margin: 10px;
 	overflow: hidden;
