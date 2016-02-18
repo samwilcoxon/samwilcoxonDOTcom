@@ -1,5 +1,14 @@
 $(document).ready(function() {
 
+	function printHeightWidth() {
+		console.log($(window).height());
+		console.log($(window).width());
+	}
+	printHeightWidth();
+
+	$(window).resize(function () {
+		printHeightWidth();
+	});
 
 	// var $cube = $('.cube')[0];
 	// var xRot = 85;
@@ -11,7 +20,7 @@ $(document).ready(function() {
 	var colorsPerTile = 256/tilesPerEdge
 	var maxPixelPosition = 64 - pixelsPerTile;
 
-	
+	console.log('set it up');
 	setupCube();
 
 	function setupCube() {
@@ -129,6 +138,5 @@ $(document).ready(function() {
 		$('#cubeNav').attr('class', '');
 		$('#cubeNav').attr('class', startClass);
 	});
-
 
 });

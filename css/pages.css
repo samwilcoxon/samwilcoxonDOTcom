@@ -466,10 +466,15 @@ span.jobTitle {
 	margin-left: 10px;
 }
 
-p.jobSummary {
+ul.jobSummary {
 	font-size: 15px;
 	margin-top: 10px;
 	clear: both;
+	margin-left: 20px;
+}
+
+ul.jobSummary li {
+	margin-bottom: 5px;
 }
 
 .jobLink {
@@ -750,5 +755,6 @@ div.contactOption div {
     top: 0;
 }
 
-
-
+.rightPanel {
+	color: orange !important;
+}
