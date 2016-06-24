@@ -254,23 +254,23 @@ $(document).ready(function() {
 		return 0;
 	}
 
-	var cubeLinks= ['work.html', 'resume.html', 'design.html', 'contact.html', 'about.html'];
+	// var cubeLinks= ['work.html', 'resume.html', 'design.html', 'contact.html', 'about.html'];
 
-	cubeLinkSetup();
+	// cubeLinkSetup();
 
-	function cubeLinkSetup() {
-		$('.cubeContent').bind('click', function () {
-			if (!start) return;
-			cubeClick(this);
-		})
-	}
+	// function cubeLinkSetup() {
+	// 	$('.cube-face').bind('click', function () {
+	// 		if (!start) return;
+	// 		cubeClick(this);
+	// 	})
+	// }
 
-	function cubeClick(aCube) {
-		if (!pause) {
-			var cubeIndex = $('.cubeContent').index(aCube);
-			window.location.href = cubeLinks[cubeIndex];
-		}
-	}
+	// function cubeClick(aCube) {
+	// 	if (!pause) {
+	// 		var cubeIndex = $('.cube-face').index(aCube);
+	// 		window.location.href = cubeLinks[cubeIndex];
+	// 	}
+	// }
 
 
 });

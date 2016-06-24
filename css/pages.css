@@ -431,6 +431,12 @@ div.pageRowLeft {
     width: 28%;
 }
 
+div.pageRowLeft a {
+	display: block;
+	position: relative;
+	overflow: hidden;
+}
+
 div.pageRowLeft img {
 	width: 100%;
 	margin: auto;
@@ -448,20 +454,13 @@ div.pageRowRight {
     width: 68%;
 }
 
-span.jobName {
+.jobName {
 	font-size: 22px;
 	font-weight: bold;
-	margin-right: 10px;
 	color: white;
-	transition: color .2s;
-	-webkit-transition: color .2s;
 }
 
-span.jobName:hover {
-	color: #86dfea;
-}
-
-span.jobTitle {
+.jobTitle {
 	font-size: 20px;
 	margin-left: 10px;
 }
@@ -731,6 +730,9 @@ div.contactOption {
 
 div.contactOption a {
 	color: white;
+	display: block;
+	overflow: hidden;
+	position: relative;
 }
 div.contactOption a:hover {
 	color: #AAE4EB;
