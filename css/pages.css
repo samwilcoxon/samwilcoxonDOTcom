@@ -374,10 +374,10 @@ h3.aboutSubtitle {
 
 div.aboutBody {
     font-size: 18px;
-    margin-left: 5%;
+    margin-left: 10%;
     margin-top: 10px;
     position: relative;
-    width: 90%;
+    width: 80%;
 }
 
 h1.pageTitle {
@@ -744,6 +744,7 @@ div.contactOption img {
     margin-right: 10px;
     position: relative;
     top: 0;
+    border-radius: 10px;
 }
 
 div.contactOption div {
